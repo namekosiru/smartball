@@ -1,7 +1,12 @@
 /.vscode
+/Assets
+!/Assets/Prefabs
+!/Assets/Scenes
+!/Assets/Scripts
 /Logs
 /Temp
 /Library
 /UserSettings
 /ProjectSettings
-smartboll.sln
+/Assembly-CSharp.csproj
+/smartboll.sln
