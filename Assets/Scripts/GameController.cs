@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LaunchBall : MonoBehaviour
+public class GameController : MonoBehaviour
 {
     public GameObject launchpoint;
     public GameObject[] ballPrefabs;
@@ -23,7 +23,7 @@ public class LaunchBall : MonoBehaviour
         }
     }
 
-        private void LauncherBall()
+    private void LauncherBall()
     {
         // 弾を発射する場所を取得
         Vector3 ballPosition = launchpoint.transform.position;
@@ -41,4 +41,6 @@ public class LaunchBall : MonoBehaviour
         int index = Random.Range(0, ballPrefabs.Length);
         return ballPrefabs[index];
     }
+
+    
 }
