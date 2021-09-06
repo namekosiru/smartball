@@ -4,25 +4,35 @@ using UnityEngine;
 
 public class LaunchBall : MonoBehaviour
 {
+    public GameObject launchpoint;
     public GameObject ball;
-    public float zforce;
-    Vector3 force;
-    Rigidbody rb;
+    public float speed;
 
     // Start is called before the first frame update
     void Start()
     {
-        transform.Translate(16.6f, 1.21f, -23.6f);
-        rb = ball.GetComponent<Rigidbody>();
-        force = new Vector3(0.0f, 0.0f, zforce);
+
+
     }
 
     void Update()
     {
-        if(Input.GetButton("Fire1"))
+        if(Input.GetButtonDown("Fire1"))
         {
-            Debug.Log("ok");
-            rb.AddForce(force);
+            LauncherBall();
         }
+    }
+
+        private void LauncherBall()
+    {
+        // 弾を発射する場所を取得
+        Vector3 ballPosition = launchpoint.transform.position;
+        // 上で取得した場所に、"bullet"のPrefabを出現させる
+        GameObject newBall = Instantiate(ball, ballPosition, transform.rotation);
+        // 出現させたボールのforward(z軸方向)
+        Vector3 direction = newBall.transform.forward;
+        // 弾の発射方向にnewBallのz方向(ローカル座標)を入れ、弾オブジェクトのrigidbodyに衝撃力を加える
+        newBall.GetComponent<Rigidbody>().AddForce(direction * speed, ForceMode.Impulse);
+  
     }
 }
