@@ -18,7 +18,6 @@ public class DestroyBall : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other);
         Destroy(other.gameObject);
     }
 }

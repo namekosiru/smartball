@@ -1,18 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
     public GameObject launchpoint;
     public GameObject[] ballPrefabs;
     public float speed;
+    int score = 0;
+    Text scoreText;
 
     // Start is called before the first frame update
     void Start()
     {
-
-
+     scoreText = GameObject.Find("Scorenum").GetComponent<Text>();
     }
 
     void Update()
@@ -42,5 +44,10 @@ public class GameController : MonoBehaviour
         return ballPrefabs[index];
     }
 
+    public void countscore(int num)
+    {
+        score += num;
+        scoreText.text = "score : " + score;
+    }
     
 }
