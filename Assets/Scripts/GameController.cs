@@ -10,11 +10,13 @@ public class GameController : MonoBehaviour
     float speed = 0.0f;
     int score = 0;
     Text scoreText;
+    Slider _slider;
 
     // Start is called before the first frame update
     void Start()
     {
-     scoreText = GameObject.Find("Scorenum").GetComponent<Text>();
+        _slider = GameObject.Find("SpeedBar").GetComponent<Slider>();
+        scoreText = GameObject.Find("Scorenum").GetComponent<Text>();
     }
 
     void Update()
@@ -22,6 +24,7 @@ public class GameController : MonoBehaviour
         if(Input.GetButton("Fire1"))
         {
             speed += 0.5f;
+            _slider.value = speed / 150.0f;
             if (speed > 150)
             {
                 speed = 150;
