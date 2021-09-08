@@ -7,7 +7,7 @@ public class GameController : MonoBehaviour
 {
     public GameObject launchpoint;
     public GameObject[] ballPrefabs;
-    public float speed;
+    float speed = 0.0f;
     int score = 0;
     Text scoreText;
 
@@ -19,13 +19,22 @@ public class GameController : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetButtonDown("Fire1"))
+        if(Input.GetButton("Fire1"))
         {
-            LauncherBall();
+            speed += 0.5f;
+            if (speed > 150)
+            {
+                speed = 150;
+            }
+        }
+        if(Input.GetButtonUp("Fire1"))
+        {
+            LauncherBall(speed);
+            speed = 0;
         }
     }
 
-    private void LauncherBall()
+    private void LauncherBall(float speed)
     {
         // 弾を発射する場所を取得
         Vector3 ballPosition = launchpoint.transform.position;
