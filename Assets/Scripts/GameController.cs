@@ -7,7 +7,7 @@ public class GameController : MonoBehaviour
 {
     public GameObject launchpoint;
     public GameObject[] ballPrefabs;
-    float speed = 0.0f;
+    float speed = 10.0f;
     int score = 0;
     Text scoreText;
     Slider _slider;
@@ -33,7 +33,8 @@ public class GameController : MonoBehaviour
         if(Input.GetButtonUp("Fire1"))
         {
             LauncherBall(speed);
-            speed = 0;
+            speed = 10.0f;
+            _slider.value = 0;
         }
     }
 

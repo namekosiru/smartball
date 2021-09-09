@@ -5,6 +5,8 @@ using UnityEngine;
 public class BallController : MonoBehaviour
 {
     GameObject GameController;
+    GameObject ball;
+    Vector3 pos;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,7 +16,6 @@ public class BallController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
     }
 
     void OnTriggerEnter(Collider other)
